@@ -5,8 +5,8 @@ import { StdioServerTransport } from '@modelcontextprotocol/sdk/server/stdio.js'
 import { registerTools } from './tools/index.js'
 
 const server = new McpServer({
-  name: 'ghostvvriter',
-  version: '0.3.0',
+  name: 'vvriter',
+  version: '0.3.5',
 })
 
 registerTools(server)

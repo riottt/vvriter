@@ -70,14 +70,14 @@ function esc(s: string): string {
 
 export function registerGenerateTools(server: McpServer) {
   server.tool(
-    'vvrite',
+    'vvriter',
     `The only tool. Two modes:
 
 **Mode 1 — Suggest:** Call with no arguments (or just a topic). Returns a randomized sample of Jack Butcher's tweet archive and VV visuals. You read through it, find the interesting idea clusters, and present 3 numbered options to the user.
 
-**Mode 2 — Generate:** Call with title, angle, tweet_ids, and visual_ids. Writes the article, saves it as a styled HTML file to ~/ghostvvriter/, and returns the file path. Then open it in the browser.
+**Mode 2 — Generate:** Call with title, angle, tweet_ids, and visual_ids. Writes the article, saves it as a styled HTML file to ~/vvriter/, and returns the file path. Then open it in the browser.
 
-Flow: vvrite() → user picks a number → vvrite(title, angle, ids) → open file`,
+Flow: vvriter() → user picks a number → vvriter(title, angle, ids) → open file`,
     {
       topic: z
         .string()
@@ -135,7 +135,7 @@ Flow: vvrite() → user picks a number → vvrite(title, angle, ids) → open fi
           .join('\n\n')
 
         // Prepare output directory
-        const outDir = join(homedir(), 'ghostvvriter')
+        const outDir = join(homedir(), 'vvriter')
         if (!existsSync(outDir)) mkdirSync(outDir, { recursive: true })
         const slug = title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '')
         const filepath = join(outDir, `${slug}.html`)
@@ -278,7 +278,7 @@ Flow: vvrite() → user picks a number → vvrite(title, angle, ids) → open fi
         ``,
         `Keep it scannable. Don't dump tweet lists.`,
         ``,
-        `Track the tweet IDs and visual IDs for each option internally. When the user picks a number, immediately call vvrite again with title, angle, tweet_ids, and visual_ids. Then write the HTML file and open it. The whole flow: pick a number → article appears in browser.`,
+        `Track the tweet IDs and visual IDs for each option internally. When the user picks a number, immediately call vvriter again with title, angle, tweet_ids, and visual_ids. Then write the HTML file and open it. The whole flow: pick a number → article appears in browser.`,
       ].join('\n')
 
       return { content: [{ type: 'text' as const, text: parts }] }
