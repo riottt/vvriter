@@ -37,7 +37,7 @@ Add to `claude_desktop_config.json`:
 
 ## How it works
 
-One command: `vvriter`
+Primary writing command: `vvriter`
 
 1. Call `vvriter` with no arguments
 2. Pick from 3 article concepts
@@ -46,6 +46,21 @@ One command: `vvriter`
 The tool loads a randomized sample of ~250 tweets (top performers, mid-tier, deep cuts) alongside ~150 VV visuals. The AI finds the interesting idea clusters. Every call shuffles the sample — you never get the same suggestions twice.
 
 You don't need to know what to look for. The archive surfaces the ideas.
+
+## Available MCP tools
+
+The published workflow is still centered around `vvriter`, but this fork also exposes the archive and knowledge layer directly so agents can research before drafting:
+
+- `vvriter`: suggest article concepts or generate a full HTML article draft
+- `slides`: build a slide deck from the archive for a topic
+- `get_writing_profile`: load the full Visualize Value writing profile
+- `list_frameworks` / `get_framework`: inspect VV frameworks and mental models
+- `search_tweets` / `top_tweets`: mine the tweet archive directly
+- `get_daily_visual` / `search_visuals` / `get_visual`: browse the visual library
+- `list_projects` / `get_project` / `search_projects`: inspect VV projects
+- `list_courses` / `get_course` / `get_lesson` / `search_lessons`: inspect course material
+
+That makes the server useful not only for one-shot article generation, but also for hook discovery, angle selection, outline building, and research-backed drafts.
 
 ## Learn more
 

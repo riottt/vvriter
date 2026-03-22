@@ -6,7 +6,7 @@ import { registerTools } from './tools/index.js'
 
 const server = new McpServer({
   name: 'vvriter',
-  version: '0.3.5',
+  version: '0.3.6',
 })
 
 registerTools(server)
